@@ -20,10 +20,10 @@ class Dog : public Animal
 public:
 	Dog();
 	Dog(const Dog &Cpy);
-	~Dog();
+	virtual ~Dog();
 
 	Dog & operator=(const Dog &Cpy);
-	virtual void makeSound(void);
+	virtual void makeSound(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/12 16:23:30 by peanut            #+#    #+#              #
-#    Updated: 2024/10/24 18:58:45 by cdeville         ###   ########.fr        #
+#    Updated: 2024/10/25 13:33:09 by cdeville         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=WrongAnimal
 
 CC=c++
 
-CFLAGS= -Wall -Werror -Wextra -std=c++98
+CFLAGS= -Wall -Werror -Wextra -std=c++98 -ggdb
 
 DEBUG = -g
 
@@ -22,7 +22,10 @@ SRC_DIR = ./
 
 SRC =	main.cpp \
 		Cat.cpp \
-		Dog.cpp
+		Dog.cpp \
+		Animal.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 

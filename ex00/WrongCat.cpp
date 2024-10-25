@@ -1,49 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:30:33 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/25 11:57:27 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:46:04 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
-Animal::Animal()
+WrongCat::WrongCat()
 {
-	std::cout << "\e[0;32mAnimal Default constructor called\e[0m" << std::endl;
-	this->type = "Animal";
+	std::cout << "\e[0;32mWrongCat Default constructor called\e[0m" << std::endl;
+	this->type = "WrongCat";
 }
 
-Animal::Animal(const Animal &Cpy)
+WrongCat::WrongCat(const WrongCat &Cpy)
 {
-	std::cout << "\e[0;32mAnimal Copy constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mWrongCat Copy constructor called\e[0m" << std::endl;
 	*this = Cpy;
 }
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-	std::cout << "\e[0;31mAnimal Destructor called\e[0m" << std::endl;
+	std::cout << "\e[0;31mWrongCat Destructor called\e[0m" << std::endl;
 }
 
-Animal & Animal::operator=(const Animal &Cpy)
+WrongCat & WrongCat::operator=(const WrongCat &Cpy)
 {
-	std::cout << "\e[0;32mAnimal Name constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mWrongCat Name constructor called\e[0m" << std::endl;
 	if (this == &Cpy)
 		return (*this);
 	this->type = Cpy.type;
 	return (*this);
 }
 
-void Animal::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "This animal has no type and can't make a sound" << std::endl;
-}
-
-std::string Animal::getType(void) const
-{
-	return (this->type);
+	std::cout << this->type << " is meowing, MIAOUUU" << std::endl;
 }
