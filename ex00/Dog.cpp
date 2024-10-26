@@ -31,7 +31,7 @@ Dog::~Dog()
 
 Dog & Dog::operator=(const Dog &Cpy)
 {
-	std::cout << "\e[0;32mDog Name constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mDog Copy assignement operator called\e[0m";
 	if (this == &Cpy)
 		return (*this);
 	this->type = Cpy.type;

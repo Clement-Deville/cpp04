@@ -31,7 +31,7 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &Cpy)
 {
-	std::cout << "\e[0;32mWrongAnimal Name constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mWrong Animal Copy assignement operator called\e[0m";
 	if (this == &Cpy)
 		return (*this);
 	this->type = Cpy.type;

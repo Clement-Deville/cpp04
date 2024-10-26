@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Cat.hpp"
 
-WrongCat::WrongCat()
+Cat::Cat()
 {
-	std::cout << "\e[0;32mWrongCat Default constructor called\e[0m" << std::endl;
-	this->type = "WrongCat";
+	std::cout << "\e[0;32mCat Default constructor called\e[0m" << std::endl;
+	this->type = "Cat";
 }
 
-WrongCat::WrongCat(const WrongCat &Cpy)
+Cat::Cat(const Cat &Cpy)
 {
-	std::cout << "\e[0;32mWrongCat Copy constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mCat Copy constructor called\e[0m" << std::endl;
 	*this = Cpy;
 }
 
-WrongCat::~WrongCat()
+Cat::~Cat()
 {
-	std::cout << "\e[0;31mWrongCat Destructor called\e[0m" << std::endl;
+	std::cout << "\e[0;31mCat Destructor called\e[0m" << std::endl;
 }
 
-WrongCat & WrongCat::operator=(const WrongCat &Cpy)
+Cat & Cat::operator=(const Cat &Cpy)
 {
-	std::cout << "\e[0;32mWrongCat Copy assignement operator called\e[0m";
-	if (this == &Cpy)
-		return (*this);
-	this->type = Cpy.type;
-	return (*this);
+	std::cout << "\e[0;32mCat Copy assignement operator called\e[0m" << std::endl;
+	return((Cat &)Animal::operator=(Cpy));
 }
 
-void WrongCat::makeSound() const
+void Cat::makeSound() const
 {
 	std::cout << this->type << " is meowing, MIAOUUU" << std::endl;
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-WrongCat::WrongCat()
+Dog::Dog()
 {
-	std::cout << "\e[0;32mWrongCat Default constructor called\e[0m" << std::endl;
-	this->type = "WrongCat";
+	std::cout << "\e[0;32mDog Default constructor called\e[0m" << std::endl;
+	this->type = "Dog";
 }
 
-WrongCat::WrongCat(const WrongCat &Cpy)
+Dog::Dog(const Dog &Cpy)
 {
-	std::cout << "\e[0;32mWrongCat Copy constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mDog Copy constructor called\e[0m" << std::endl;
 	*this = Cpy;
 }
 
-WrongCat::~WrongCat()
+Dog::~Dog()
 {
-	std::cout << "\e[0;31mWrongCat Destructor called\e[0m" << std::endl;
+	std::cout << "\e[0;31mDog Destructor called\e[0m" << std::endl;
 }
 
-WrongCat & WrongCat::operator=(const WrongCat &Cpy)
+Dog & Dog::operator=(const Dog &Cpy)
 {
-	std::cout << "\e[0;32mWrongCat Copy assignement operator called\e[0m";
+	std::cout << "\e[0;32mDog Copy assignement operator called\e[0m" << std::endl;
 	if (this == &Cpy)
 		return (*this);
 	this->type = Cpy.type;
+	delete this->_brain;
+	this->_brain = new Brain(*Cpy._brain);
 	return (*this);
 }
 
-void WrongCat::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << this->type << " is meowing, MIAOUUU" << std::endl;
+	std::cout << this->type << " is barking, OUAF OUAF" << std::endl;
 }
