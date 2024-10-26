@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   A_Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 15:00:28 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/26 13:57:35 by cdeville         ###   ########.fr       */
+/*   Created: 2024/10/24 18:31:38 by cdeville          #+#    #+#             */
+/*   Updated: 2024/10/26 13:59:32 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef A_Animal_HPP
+# define A_Animal_HPP
 
 # include <string>
 # include <iostream>
+# include <stdexcept>
+# include "Brain.hpp"
 
-class Brain
+class A_Animal
 {
-private:
-	std::string 	_ideas[100];
-	unsigned short	_count;
+protected:
+	std::string type;
+	Brain *_brain;
 public:
-	Brain();
-	Brain(const Brain &Cpy);
-	virtual ~Brain();
+	A_Animal();
+	A_Animal(const A_Animal &Cpy);
+	virtual ~A_Animal();
 
-	Brain 		&operator=(const Brain &Cpy);
-	void		setIdea(std::string newIdea);
-	std::string	getIdea(unsigned short index) const;
+	A_Animal & operator=(const A_Animal &Cpy);
+	virtual void makeSound(void) const = 0;
+	std::string getType(void) const;
+	Brain	&getBrain(void) const;
 };
 
 #endif

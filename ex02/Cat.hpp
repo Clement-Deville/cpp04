@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 15:00:28 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/26 13:57:35 by cdeville         ###   ########.fr       */
+/*   Created: 2024/10/24 18:31:38 by cdeville          #+#    #+#             */
+/*   Updated: 2024/10/24 18:46:56 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <string>
-# include <iostream>
+# include "A_Animal.hpp"
 
-class Brain
+class Cat : public A_Animal
 {
-private:
-	std::string 	_ideas[100];
-	unsigned short	_count;
 public:
-	Brain();
-	Brain(const Brain &Cpy);
-	virtual ~Brain();
+	Cat();
+	Cat(const Cat &Cpy);
+	~Cat();
 
-	Brain 		&operator=(const Brain &Cpy);
-	void		setIdea(std::string newIdea);
-	std::string	getIdea(unsigned short index) const;
+	Cat & operator=(const Cat &Cpy);
+	virtual void makeSound(void) const;
 };
 
 #endif
