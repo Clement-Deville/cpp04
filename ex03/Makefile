@@ -6,7 +6,7 @@
 #    By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/12 16:23:30 by peanut            #+#    #+#              #
-#    Updated: 2024/10/28 13:37:46 by cdeville         ###   ########.fr        #
+#    Updated: 2024/10/28 16:00:22 by cdeville         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC =	main.cpp \
 		AMateria.cpp \
 		Character.cpp \
 		Cure.cpp \
-		Ice.cpp
+		Ice.cpp \
+		MateriaSource.cpp
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 

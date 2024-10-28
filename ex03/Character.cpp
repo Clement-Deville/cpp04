@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:10:33 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 13:49:57 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:46:52 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Character::Character()
 	std::cout << "\e[0;32mCharacter Default constructor called\e[0m" << std::endl;
 	this->_name = "Unamed character";
 	for (int i = 0; i < 4; i++)
-		_slot[i] = NULL;
+		this->_slot[i] = NULL;
 }
 
 Character::Character(const std::string name)
@@ -31,6 +31,8 @@ Character::Character(const std::string name)
 Character::Character(const Character &Cpy)
 {
 	std::cout << "\e[0;32mCharacter Copy constructor called\e[0m" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_slot[i] = NULL;
 	*this = Cpy;
 }
 
@@ -55,8 +57,18 @@ Character & Character::operator=(const Character &Cpy)
 	this->_name = Cpy._name;
 	for (int i = 0; i < 4; i++)
 	{
+		if (this->_slot[i])
+		{
+			delete this->_slot[i];
+			this->_slot[i] = NULL;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
 		if (Cpy._slot[i])
-			_slot[i] = Cpy._slot[i]->clone();
+			this->_slot[i] = Cpy._slot[i]->clone();
+		else
+			this->_slot[i] = NULL;
 	}
 	return (*this);
 }
@@ -68,16 +80,18 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->_slot[i]
-			&& this->_slot[i]->getType() == m->getType())
-		{
-			std::cerr << "This Materia type is already possessed"
-				<< std::endl;
-			return;
-		}
-	}
+	if (m == NULL)
+		return ;
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	if (this->_slot[i]
+	// 		&& this->_slot[i]->getType() == m->getType())
+	// 	{
+	// 		std::cerr << "This Materia type is already possessed"
+	// 			<< std::endl;
+	// 		return;
+	// 	}
+	// }
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_slot[i] == NULL)
@@ -97,13 +111,13 @@ void Character::unequip(int idx)
 		std::cerr << "No existing Materia at this index to unequip" << std::endl;
 		return ;
 	}
-	delete this->_slot[idx];
+	// delete this->_slot[idx];
 	this->_slot[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > 4 ||this->_slot[idx] == NULL)
+	if (idx < 0 || idx > 4 || this->_slot[idx] == NULL)
 	{
 		std::cerr << "No existing Materia at this index to use" << std::endl;
 		return ;

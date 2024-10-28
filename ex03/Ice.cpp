@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 15:04:06 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 13:06:07 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/10/28 18:00:25 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Ice::Ice()
 Ice::Ice(const Ice &Cpy)
 {
 	std::cout << "\e[0;32mIce Copy constructor called\e[0m" << std::endl;
+	this->_type = "ice";
 	*this = Cpy;
 }
 
@@ -34,7 +35,6 @@ Ice & Ice::operator=(const Ice &Cpy)
 	std::cout << "\e[0;32mIce Copy assignement operator called\e[0m" << std::endl;
 	if (this == &Cpy)
 		return (*this);
-	this->_type = Cpy._type;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:05:29 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 13:05:48 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:38:14 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Cure::Cure()
 Cure::Cure(const Cure &Cpy)
 {
 	std::cout << "\e[0;32mCure Copy constructor called\e[0m" << std::endl;
+	this->_type = "cure";
 	*this = Cpy;
 }
 
@@ -34,7 +35,6 @@ Cure & Cure::operator=(const Cure &Cpy)
 	std::cout << "\e[0;32mCure Copy assignement operator called\e[0m" << std::endl;
 	if (this == &Cpy)
 		return (*this);
-	this->_type = Cpy._type;
 	return (*this);
 }
 
