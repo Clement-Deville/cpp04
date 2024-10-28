@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 15:04:06 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 13:06:07 by cdeville         ###   ########.fr       */
+/*   Created: 2024/10/28 13:05:29 by cdeville          #+#    #+#             */
+/*   Updated: 2024/10/28 13:05:48 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Cure.hpp"
 
-Ice::Ice()
+Cure::Cure()
 {
-	std::cout << "\e[0;32mIce Default constructor called\e[0m" << std::endl;
-	this->_type = "ice";
+	std::cout << "\e[0;32mCure Default constructor called\e[0m" << std::endl;
+	this->_type = "cure";
 }
 
-Ice::Ice(const Ice &Cpy)
+Cure::Cure(const Cure &Cpy)
 {
-	std::cout << "\e[0;32mIce Copy constructor called\e[0m" << std::endl;
+	std::cout << "\e[0;32mCure Copy constructor called\e[0m" << std::endl;
 	*this = Cpy;
 }
 
-Ice::~Ice()
+Cure::~Cure()
 {
-	std::cout << "\e[0;31mIce Destructor called\e[0m" << std::endl;
+	std::cout << "\e[0;31mCure Destructor called\e[0m" << std::endl;
 }
 
-Ice & Ice::operator=(const Ice &Cpy)
+Cure & Cure::operator=(const Cure &Cpy)
 {
-	std::cout << "\e[0;32mIce Copy assignement operator called\e[0m" << std::endl;
+	std::cout << "\e[0;32mCure Copy assignement operator called\e[0m" << std::endl;
 	if (this == &Cpy)
 		return (*this);
 	this->_type = Cpy._type;
 	return (*this);
 }
 
-void Ice::use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
 	std::string name;
 
@@ -49,11 +49,11 @@ void Ice::use(ICharacter& target)
 			<< std::endl;
 		return ;
 	}
-	std::cout << "* shoots an ice bolt at "<< name
-		<< " *" << std::endl;
+	std::cout << "* heals " << name
+		<< "’s wounds *" << std::endl;
 }
 
-AMateria* Ice::clone() const
+AMateria* Cure::clone() const
 {
-	return (new Ice(*this));
+	return (new Cure(*this));
 }

@@ -49,3 +49,9 @@ std::string const AMateria::getType(void) const
 	return (this->_type);
 }
 
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "ERROR: Can't use a AMateria type"
+		<< std::endl;
+	(void)target;
+}

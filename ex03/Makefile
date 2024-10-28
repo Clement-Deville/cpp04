@@ -6,7 +6,7 @@
 #    By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/12 16:23:30 by peanut            #+#    #+#              #
-#    Updated: 2024/10/26 14:07:47 by cdeville         ###   ########.fr        #
+#    Updated: 2024/10/28 13:37:46 by cdeville         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,10 @@ DEBUG = -g
 SRC_DIR = ./
 
 SRC =	main.cpp \
-		Cat.cpp \
-		Dog.cpp \
 		AMateria.cpp \
-		Brain.cpp
+		Character.cpp \
+		Cure.cpp \
+		Ice.cpp
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 

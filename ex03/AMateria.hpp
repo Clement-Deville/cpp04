@@ -19,6 +19,8 @@
 
 # include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
 protected:
@@ -34,10 +36,5 @@ public:
 	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
 };
-
-void AMateria::use(ICharacter& target)
-{
-
-}
 
 #endif
