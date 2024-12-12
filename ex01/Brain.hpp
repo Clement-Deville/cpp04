@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:00:28 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/26 13:57:35 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:38:21 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ public:
 	virtual ~Brain();
 
 	Brain 		&operator=(const Brain &Cpy);
-	void		setIdea(std::string newIdea);
-	std::string	getIdea(unsigned short index) const;
+	void		setIdea(const std::string newIdea);
+	std::string	getIdea(const unsigned short index) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:10:33 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 17:46:52 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:29:14 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ Character::Character(const Character &Cpy)
 Character::~Character()
 {
 	std::cout << "\e[0;31mCharacter Destructor called\e[0m" << std::endl;
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->_slot[i])
-		{
-			delete this->_slot[i];
-			this->_slot[i] = NULL;
-		}
-	}
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	if (this->_slot[i])
+	// 	{
+	// 		delete this->_slot[i];
+	// 		this->_slot[i] = NULL;
+	// 	}
+	// }
 }
 
 Character & Character::operator=(const Character &Cpy)

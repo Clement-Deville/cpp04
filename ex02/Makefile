@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/12 16:23:30 by peanut            #+#    #+#              #
-#    Updated: 2024/10/26 14:00:00 by cdeville         ###   ########.fr        #
+#    Created: 2024/07/12 16:23:30 by cdeville          #+#    #+#              #
+#    Updated: 2024/12/11 14:41:52 by cdeville         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=Brain
+NAME=Abstract
 
 CC=c++
 

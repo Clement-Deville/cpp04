@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:09:29 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 13:45:17 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:27:45 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Character : public ICharacter
 	protected :
 		std::string	_name;
 		AMateria	*_slot[4];
+		// AMateria	*_floor[4];
 	public:
 		Character();
 		Character(const std::string name);

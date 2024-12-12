@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:08:36 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 18:09:18 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:08:09 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,15 @@ int main()
 		src->learnMateria(mat);
 		std::cout << std::endl;
 
+	//! VERIFIER DEEP COPY
+	//* POURQUOI NE PAS CREER UN FLOOR PROPRE A CHAQUE CHARACTER ET SUPPRIMER TOUT A LA FIN?
 		std::cout << "2. Create 2 new characters and test deep copy:" << std::endl;
 		Character *dur0 = new Character("Alice");
-		ICharacter *dur1 = new Character(*dur0);
+		ICharacter *dur1 = new Character("Bruce");
+		AMateria *tmp_materia = src->createMateria("ice");
+		dur0->equip(tmp_materia);
+		dur0->use(0, *dur0);
+		*dur1 = *dur0;
 		delete dur0;
 		delete dur1;
 		std::cout << std::endl;

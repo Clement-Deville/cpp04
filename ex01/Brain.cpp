@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:00:09 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/26 13:53:44 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:38:39 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Brain & Brain::operator=(const Brain &Cpy)
 	return (*this);
 }
 
-void	Brain::setIdea(std::string newIdea)
+void	Brain::setIdea(const std::string newIdea)
 {
 	_ideas[_count] = newIdea;
 	if (_count == 99)
@@ -50,7 +50,7 @@ void	Brain::setIdea(std::string newIdea)
 		_count++;
 }
 
-std::string	Brain::getIdea(unsigned short index) const
+std::string	Brain::getIdea(const unsigned short index) const
 {
 	if (index > 99)
 	{

@@ -20,7 +20,7 @@ class Cat : public Animal
 public:
 	Cat();
 	Cat(const Cat &Cpy);
-	~Cat();
+	virtual ~Cat();
 
 	Cat & operator=(const Cat &Cpy);
 	virtual void makeSound(void) const;
