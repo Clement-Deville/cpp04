@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:08:36 by cdeville          #+#    #+#             */
-/*   Updated: 2024/12/11 18:08:09 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/12 19:07:05 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int main()
 		dur2->equip(cure);
 		dur2->equip(ice);
 		dur2->unequip(2);
-		delete ice; // Ice must be deleted manually when unequipped
+		// delete ice; // Ice must be deleted manually when unequipped
 		dur2->unequip(2);
 		dur2->unequip(6);
 		std::cout << std::endl;
