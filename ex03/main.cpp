@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:08:36 by cdeville          #+#    #+#             */
-/*   Updated: 2024/12/13 16:00:36 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:13:09 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,10 +269,16 @@ int main()
 
 		for (int i = 0; i < 5; i++)
 			Joey->use(i, *Joey);
-			
+
 		std::cout << "\n*** TESTING DEEP COPY: ***\n" << std::endl;
 
+		ICharacter *Joey_Cpy = new Character(*dynamic_cast<Character *>(Joey));
 		delete Joey;
+
+		for (int i = 0; i < 5; i++)
+			Joey_Cpy->use(i, *Joey_Cpy);
+
+		delete Joey_Cpy;
 		delete src;
 	}
 	return (0);

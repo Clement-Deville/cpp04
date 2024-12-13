@@ -6,11 +6,15 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:10:33 by cdeville          #+#    #+#             */
-/*   Updated: 2024/12/13 16:01:54 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:16:31 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+
+/**========================================================================
+ *                      CONSTRUCTORS/DESTRUCTORS
+ *========================================================================**/
 
 Character::Character(): floor_size(4), floor_used(0)
 {
@@ -38,7 +42,6 @@ Character::Character(const Character &Cpy):
 	std::cout << "\e[0;32mCharacter Copy constructor called\e[0m" << std::endl;
 	for (int i = 0; i < 4; i++)
 		this->_slot[i] = NULL;
-	//! VERFIER COMPORTEMENT SI CONSTRUCTEUR APPELE ALORS QUE DEJA INSTANCIER
 	*this = Cpy;
 }
 
@@ -75,6 +78,10 @@ Character & Character::operator=(const Character &Cpy)
 	}
 	return (*this);
 }
+
+/**========================================================================
+ *                               METHODS
+ *========================================================================**/
 
 std::string const & Character::getName() const
 {

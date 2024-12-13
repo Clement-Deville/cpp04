@@ -12,6 +12,10 @@
 
 #include "AMateria.hpp"
 
+/**========================================================================
+ *                      CONSTRUCTORS/DESTRUCTORS
+ *========================================================================**/
+
 AMateria::AMateria()
 {
 	std::cout << "\e[0;32mAMateria Default constructor called\e[0m" << std::endl;
@@ -43,6 +47,10 @@ AMateria & AMateria::operator=(const AMateria &Cpy)
 	this->_type = Cpy._type;
 	return (*this);
 }
+
+/**========================================================================
+ *                              METHODS
+ *========================================================================**/
 
 std::string const AMateria::getType(void) const
 {

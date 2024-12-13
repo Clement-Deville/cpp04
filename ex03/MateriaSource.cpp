@@ -6,11 +6,15 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:58:59 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/28 18:06:51 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:15:21 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+
+/**========================================================================
+ *                      CONSTRUCTORS/DESTRUCTORS
+ *========================================================================**/
 
 MateriaSource::MateriaSource()
 {
@@ -48,18 +52,12 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &Cpy)
 	return (*this);
 }
 
+/**========================================================================
+ *                              METHODS
+ *========================================================================**/
+
 void MateriaSource::learnMateria(AMateria* ptr)
 {
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	if (this->_list[i]
-	// 		&& this->_list[i]->getType() == ptr->getType())
-	// 	{
-	// 		std::cerr << "ERROR: You can't learn a Materia you already learned"
-	// 			<< std::endl;
-	// 		return ;
-	// 	}
-	// }
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_list[i] == NULL)
@@ -74,18 +72,6 @@ void MateriaSource::learnMateria(AMateria* ptr)
 
 void MateriaSource::forgetMateria(int index)
 {
-	// if (index < 0)
-	// {
-	// 	for (int i = 3; i >= 0; i--)
-	// 	{
-	// 		if (this->_list[i])
-	// 		{
-	// 			delete this->_list[i];
-	// 			this->_list[i] = NULL;
-	// 			return ;
-	// 		}
-	// 	}
-	// }
 	if (index < 4)
 	{
 		if (this->_list[index])
