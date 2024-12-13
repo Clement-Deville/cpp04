@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:08:36 by cdeville          #+#    #+#             */
-/*   Updated: 2024/12/12 19:07:05 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:00:36 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,8 @@ int main()
 		AMateria *cure = new Cure();
 		AMateria *ice = new Ice();
 		dur2->equip(cure);
-		dur2->equip(cure);
 		dur2->equip(ice);
 		dur2->unequip(2);
-		// delete ice; // Ice must be deleted manually when unequipped
 		dur2->unequip(2);
 		dur2->unequip(6);
 		std::cout << std::endl;
@@ -97,7 +95,186 @@ int main()
 
 		delete dur2;
 		delete mat;
-		return (0);
 	}
+	{
+		std::cout <<
+		"/**========================================================================\n" <<
+		 "*                           CHECKING AMATERIAS\n" <<
+		 "*========================================================================**/\n" << std::endl;
+
+		std::cout << "\n*** TESTING CONSTRUCTORS: ***\n" << std::endl;
+		{
+			const Ice Original;
+			std::cout << "\n";
+
+			Ice Cpy(Original);
+			std::cout << "\n";
+
+			Cpy = Original;
+			std::cout << "\n";
+		}
+		{
+			const Cure Original;
+			std::cout << "\n";
+
+			Cure Cpy(Original);
+			std::cout << "\n";
+
+			Cpy = Original;
+			std::cout << "\n";
+
+		}
+
+		std::cout << "\n*** TESTING POLYMORPHISM: ***\n" << std::endl;
+
+		Character	Joey("Joey");
+		Character	unamed;
+		AMateria	*pointer_ice = new Ice();
+		AMateria	*pointer_cure = new Cure();
+
+		std::cout << "\n\n*** TESTING USE METHOD: ***\n" << std::endl;
+
+		pointer_ice->use(Joey);
+		pointer_cure->use(Joey);
+
+		//* UNAMED CHARACTER
+		pointer_ice->use(unamed);
+		pointer_cure->use(unamed);
+
+		std::cout << "\n\n*** TESTING CLONE METHOD: ***\n" << std::endl;
+
+		const AMateria *const_Materia = new Ice();
+		AMateria *clone = const_Materia->clone();
+
+		std::cout << "\n\n*** TESTING GETER: ***\n" << std::endl;
+
+		std::cout << "Const AMateria type: " << const_Materia->getType() << std::endl;
+		std::cout << "Clone AMateria type: " << clone->getType() << std::endl;
+
+		delete const_Materia;
+		delete	clone;
+		delete	pointer_cure;
+		delete	pointer_ice;
+	}
+	{
+		std::cout <<
+		"/**========================================================================\n" <<
+		 "*                           CHECKING MATERIASOURCE\n" <<
+		 "*========================================================================**/\n" << std::endl;
+
+		std::cout << "\n*** TESTING CONSTRUCTORS: ***\n" << std::endl;
+
+		{
+			const MateriaSource Original;
+			std::cout << "\n";
+
+			MateriaSource Cpy(Original);
+			std::cout << "\n";
+
+			Cpy = MateriaSource(Original);
+			std::cout << "\n";
+
+			Cpy = Original;
+		}
+
+		std::cout << "\n*** TESTING METHODS: ***\n" << std::endl;
+
+		std::cout << "\n*** TESTING LEARN: ***\n" << std::endl;
+
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+
+		//*  CHECK MAX
+		AMateria *mat = new Cure();
+		src->learnMateria(mat);
+		delete mat;
+		std::cout << std::endl;
+
+		std::cout << "\n*** TESTING CREATE MATERIA: ***\n" << std::endl;
+
+		{
+			AMateria *tmp = src->createMateria("ice");
+			delete tmp;
+			std::cout << "\n";
+
+			tmp = src->createMateria("cure");
+			delete tmp;
+			std::cout << "\n";
+
+			//* NO MATCHING TYPE
+			tmp = NULL;
+			tmp = src->createMateria("");
+			delete tmp;
+			std::cout << "\n";
+		}
+
+		delete src;
+	}
+	{
+		std::cout <<
+		"/**========================================================================\n" <<
+		 "*                           CHECKING CHARACTERS\n" <<
+		 "*========================================================================**/\n" << std::endl;
+
+		std::cout << "\n*** TESTING CONSTRUCTORS: ***\n" << std::endl;
+
+		{
+			const Character Original;
+			std::cout << "\n";
+
+			Character Cpy(Original);
+			std::cout << "\n";
+
+			Cpy = Character(Original);
+			std::cout << "\n";
+
+			Cpy = Original;
+		}
+
+		std::cout << "\n*** TESTING METHODS: ***\n" << std::endl;
+
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+
+		ICharacter *Joey = new Character;
+
+		std::cout << "\n*** TESTING EQUIP: ***\n" << std::endl;
+
+		AMateria *tmp;
+
+		Joey->equip(src->createMateria("ice")); //1
+		Joey->equip(src->createMateria("cure")); //2
+		tmp = src->createMateria("invalid"); // to not loose the pointer
+		Joey->equip(tmp); // INVALID
+		delete tmp;
+		Joey->equip(src->createMateria("ice")); //3
+		Joey->equip(src->createMateria("cure")); //4
+		tmp = src->createMateria("ice"); // to not loose the pointer
+		Joey->equip(tmp); // OUT OF RANGE
+		delete tmp;
+
+		std::cout << "\n*** TESTING UNEQUIP: ***\n" << std::endl;
+
+		Joey->unequip(-1);
+		Joey->unequip(2);
+		Joey->unequip(2);
+
+		std::cout << "\n*** TESTING USE: ***\n" << std::endl;
+
+		for (int i = 0; i < 5; i++)
+			Joey->use(i, *Joey);
+			
+		std::cout << "\n*** TESTING DEEP COPY: ***\n" << std::endl;
+
+		delete Joey;
+		delete src;
+	}
+	return (0);
 }
 
