@@ -16,23 +16,31 @@ Cat::Cat()
 {
 	std::cout << "\e[0;32mCat Default constructor called\e[0m" << std::endl;
 	this->type = "Cat";
+	this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat &Cpy)
 {
 	std::cout << "\e[0;32mCat Copy constructor called\e[0m" << std::endl;
+	this->_brain = NULL;
 	*this = Cpy;
 }
 
 Cat::~Cat()
 {
 	std::cout << "\e[0;31mCat Destructor called\e[0m" << std::endl;
+	delete this->_brain;
 }
 
 Cat & Cat::operator=(const Cat &Cpy)
 {
 	std::cout << "\e[0;32mCat Copy assignement operator called\e[0m" << std::endl;
-	return((Cat &)Animal::operator=(Cpy));
+	if (this == &Cpy)
+		return (*this);
+	this->type = Cpy.type;
+	delete this->_brain;
+	this->_brain = new Brain(*Cpy._brain);
+	return (*this);
 }
 
 void Cat::makeSound() const

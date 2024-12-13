@@ -16,17 +16,20 @@ Dog::Dog()
 {
 	std::cout << "\e[0;32mDog Default constructor called\e[0m" << std::endl;
 	this->type = "Dog";
+	this->_brain = new Brain();
 }
 
 Dog::Dog(const Dog &Cpy)
 {
 	std::cout << "\e[0;32mDog Copy constructor called\e[0m" << std::endl;
+	this->_brain = NULL;
 	*this = Cpy;
 }
 
 Dog::~Dog()
 {
 	std::cout << "\e[0;31mDog Destructor called\e[0m" << std::endl;
+	delete this->_brain;
 }
 
 Dog & Dog::operator=(const Dog &Cpy)

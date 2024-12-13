@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:30:09 by cdeville          #+#    #+#             */
-/*   Updated: 2024/10/26 13:50:58 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/12/13 19:21:40 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,11 @@ int main(void)
 		std::cout << "-------------------------------------\n";
 		std::cout << lotsOfAnimals[0]->getType() << std::endl;
 		std::cout << lotsOfAnimals[5]->getType() << std::endl;
-		Brain *brain;
-		brain = &lotsOfAnimals[0]->getBrain();
+		Brain *brain = new Brain();
 		brain->setIdea("I want sarshisitas!");
 		brain->setIdea("Let's play ball!!");
 		brain->setIdea("Feed me human!");
-		std::cout << lotsOfAnimals[0]->getBrain().getIdea(0) << std::endl;
-		std::cout << lotsOfAnimals[0]->getBrain().getIdea(1) << std::endl;
+		delete brain;
 		std::cout << "-------------------------------------\n";
 		for (int i = 0; i < N_ANIMALS; i++)
 			delete lotsOfAnimals[i];
